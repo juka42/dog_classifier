@@ -1,0 +1,82 @@
+Argument 1 - folder: uploaded_images/
+Argument 2 - CNN model architecture: resnet
+Argument 3 - file with dog names: dognames.txt
+Command Line Arguments:
+     dir = uploaded_images/ 
+    arch = resnet 
+ dogfile = dognames.txt
+
+Pet Image Label Dictionary has 4 key-value pairs.
+Below are 4 of them:
+ 1 key:      blenheim_spaniel_4201.jpg  label:                          b
+ 2 key:                  Cola_4212.jpg  label:                          c
+ 3 key:      blenheim_spaniel_4202.jpg  label:                          b
+ 4 key:                  Dragonfly.jpg  label:                          d
+########### numero de acertos >>> 3
+
+     MATCH:
+
+     blenheim_spaniel_4201.jpg: 
+Real:           blenheim spaniel   Classifier:               blenheim spaniel
+
+     blenheim_spaniel_4202.jpg: 
+Real:           blenheim spaniel   Classifier:               blenheim spaniel
+
+                 Dragonfly.jpg: 
+Real:                  dragonfly   Classifier: dragonfly, darning needle, devil's darning needle, sewing needle, snake feeder, snake doctor, mosquito hawk, skeeter hawk
+
+ NOT A MATCH:
+
+                 Cola_4212.jpg: 
+Real:                       cola   Classifier:                         nipple
+
+# Total Images 4 # Matches: 3 # NOT Matches: 1
+
+     MATCH:
+
+     blenheim_spaniel_4201.jpg: 
+Real:           blenheim spaniel   Classifier:               blenheim spaniel  
+PetLabelDog: 1  ClassLabelDog: 1
+
+     blenheim_spaniel_4202.jpg: 
+Real:           blenheim spaniel   Classifier:               blenheim spaniel  
+PetLabelDog: 1  ClassLabelDog: 1
+
+                 Dragonfly.jpg: 
+Real:                  dragonfly   Classifier: dragonfly, darning needle, devil's darning needle, sewing needle, snake feeder, snake doctor, mosquito hawk, skeeter hawk  
+PetLabelDog: 0  ClassLabelDog: 0
+
+ NOT A MATCH:
+
+                 Cola_4212.jpg: 
+Real:                       cola   Classifier:                         nipple  
+PetLabelDog: 0  ClassLabelDog: 0
+
+# Total Images 4 # Matches: 3 # NOT Matches: 1
+>>> num dogs: 2
+>>> num not dogs: 2
+>>> num matches: 3
+
+ ** Statistics from calculates_results_stats() function:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog:   1.0 Pct Corr NOTdog:   1.0  Pct Corr Breed:   1.0
+
+ ** Check Statistics - calculated from this function as a check:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed: 100.0
+
+ Summary classification statistics: 
+          
+    Number of images:             4          
+    Number of dog images:         2          
+    Number of non dog images:     2
+
+    Number of dogs misclassified: 0
+    Number of dogs misclassified: 0
+
+    % correct dog images:      1.0          
+    % correct dog breeds:      1.0          
+    % correct non dog images:  1.0          
+    % correct classifications: 0.75
+
+** Total Elapsed Runtime: 0:0:1
