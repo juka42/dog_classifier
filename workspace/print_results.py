@@ -62,8 +62,6 @@ def print_results(results_dic, results_stats_dic, model,
     Returns:
            None - simply printing results.
     """
-    print_incorrect_dogs = True
-    print_incorrect_breed = True
 
     print("\n Summary classification statistics: \n\
           \n    Number of images:             {}\
@@ -73,13 +71,14 @@ def print_results(results_dic, results_stats_dic, model,
                   results_stats_dic["n_dogs_img"],
                   results_stats_dic["n_notdogs_img"]))
     if print_incorrect_dogs:
-        n_incorrect_dogs = (results_stats_dic["n_dogs_img"]
-                            - results_stats_dic["n_correct_dogs"])
-        print("\n    Number of dogs misclassified: {}".format(n_incorrect_dogs))
+        n_incorrect_dogs = (results_stats_dic["n_images"]
+                            - result_statistics_dic["n_correct_notdogs"])
+        print("\n    Number of misclassified dogs: {}".format(n_incorrect_dogs))
     if print_incorrect_breed == True:
         n_incorrect_dog_breeds = (results_stats_dic["n_dogs_img"]
                                   - results_stats_dic["n_correct_breed"])
-        print("    Number of dogs misclassified: {}".format(n_incorrect_dogs))
+        print("    Number of dogs misclassified: {}"
+              .format(n_incorrect_dog_breeds))
     print("\n    % correct dog images:      {}\
           \n    % correct dog breeds:      {}\
           \n    % correct non dog images:  {}\

@@ -52,7 +52,6 @@ def main():
     # Function that checks command line arguments using in_arg
     check_command_line_arguments(in_arg)
 
-
     # TODO 2: Define get_pet_labels function within the file get_pet_labels.py
     # Once the get_pet_labels function has been defined replace 'None'
     # in the function call with in_arg.dir  Once you have done the replacements

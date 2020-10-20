@@ -67,11 +67,16 @@ def classify_images(images_dir, results_dic, model):
     """
     acertos = 0
     for key in results_dic:
-        result = classifier(images_dir+key,model).casefold()
-        if result.find(results_dic[key]) >= 0:
+        # classify dog using classifier function - putting results in a list
+        result = classifier(images_dir+key,model).casefold().strip()
+        # comparing results
+        if result.find(results_dic[key][0]) >= 0:
             match = 1
-            acertos += 1
         else: match = 0
-        results_dic[key] = [results_dic[key], result.casefold(), match]
-    print("########### numero de acertos >>> {}".format(acertos))
+        # building results_dic for the current file
+        #    key = file names
+        #    index[0] = real classification (label) type: Str
+        #    index[1] = classification by algorithm type: Str
+        #    index[2] = flag: 1 if matches, 0 otherwise type: binary
+        results_dic[key] = [results_dic[key][0], result, match]
     None

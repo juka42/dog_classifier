@@ -67,19 +67,21 @@ def adjust_results4_isadog(results_dic, dogfile):
     Returns:
            None - results_dic is mutable data type so no return needed.
     """
+    # reading the file stored in "dogfile"
     dognames = {}
     with open(dogfile, 'r') as f:
         for line in f:
+            # the slice removes the "\n" in the file
             dognames[line[:-1]]=1
 
+    # checking if each imagefile is or not a dog
     for key in results_dic:
+        results_dic[key].append(0)
         if results_dic[key][0] in dognames:
-            results_dic[key].append(1)
-        else:
-            results_dic[key].append(0)
-
+            # if the real tag is "of a dog" then overrides index(3) with 1
+            results_dic[key][3]=1
+        results_dic[key].append(0)
         if results_dic[key][1] in dognames:
-            results_dic[key].append(1)
-        else:
-            results_dic[key].append(0)
+            # if the classified tag is "of a dog" overrides index(4) with 1
+            results_dic[key][4]=1
     None

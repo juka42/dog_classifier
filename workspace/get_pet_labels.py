@@ -51,19 +51,23 @@ def get_pet_labels(image_dir):
     Ignore extension (e.g. .jpg), lowcase, changes underscores for spaces,
     return only alpha characters.
     """
-    def labelize(filename):
+
+    # This function reads a file name and returns a label as specified
+    def labelize(file_name):
         label=''
-        for i in range(len(filename)):
-            if filename[i].isalpha():
-                label += filename[i].casefold()
-            elif  filename[i] == '_':
+        for i in range(len(file_name)):
+            if file_name[i].isalpha():
+                label += file_name[i].casefold().strip()
+            elif  file_name[i] == '_':
                 label += ' '
-            elif filename[i] == '.':
+            elif file_name[i] == '.':
                 break
         return(label.strip())
 
+    # This loop defines the results dictionary reading the filename_list
     results_dic = {}
     for filename in filename_list:
-        results_dic[filename] = labelize(filename)
-
+        # making sure to ignore files that begin with "."
+        if filename[0] != ".":
+            results_dic[filename] = [labelize(filename)]
     return results_dic

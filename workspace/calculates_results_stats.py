@@ -68,7 +68,7 @@ def calculates_results_stats(results_dic):
                      and the previous topic Calculating Results in the class for details
                      on how to calculate the counts and statistics.
     """
-    #initialyzing variables
+    #initialyzing results variables
     result_statistics_dic = {}
     result_statistics_dic["n_images"] = len(results_dic)
     result_statistics_dic["n_dogs_img"] = 0
@@ -94,16 +94,15 @@ def calculates_results_stats(results_dic):
         if results_dic[key][3] ==1 and results_dic[key][2] ==1:
             result_statistics_dic["n_correct_breed"] += 1 #number of correct label matches given "dog"
     #calculate percentage of matches
-    result_statistics_dic["pct_match"] = result_statistics_dic["n_match"] /len(results_dic)
+    result_statistics_dic["pct_match"] = 100*result_statistics_dic["n_match"] /len(results_dic)
     #calculate percentage of correct classifications between dog or not dog
-    result_statistics_dic["pct_correct_dogs"] = (result_statistics_dic["n_correct_dogs"]
-                                                 + result_statistics_dic["n_correct_notdogs"])/ len(results_dic)
+    result_statistics_dic["pct_correct_dogs"] = 100*(result_statistics_dic["n_correct_dogs"])/ result_statistics_dic["n_dogs_img"]
     #calculate percentage of correct breed classifications
         #given it is a dog, probability of correct breed classification
-    result_statistics_dic["pct_correct_breed"] = result_statistics_dic["n_correct_breed"]/result_statistics_dic["n_dogs_img"]
+    result_statistics_dic["pct_correct_breed"] = 100*result_statistics_dic["n_correct_breed"]/result_statistics_dic["n_dogs_img"]
     #calculate percentage of correct not dog classifications
         #given not dog, probability of a correct classification
-    result_statistics_dic["pct_correct_notdogs"] = result_statistics_dic["n_correct_notdogs"]/result_statistics_dic["n_notdogs_img"]
+    result_statistics_dic["pct_correct_notdogs"] = 100*result_statistics_dic["n_correct_notdogs"]/result_statistics_dic["n_notdogs_img"]
 
 
 
